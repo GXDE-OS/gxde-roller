@@ -1,0 +1,2 @@
+# Keep vendored third party libraries out of lang stat.
+lib/** linguist-vendored
