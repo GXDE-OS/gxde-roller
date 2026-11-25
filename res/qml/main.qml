@@ -19,6 +19,7 @@
 
 import QtQuick
 import QtQuick.Controls.Gxde
+import QtQuick.Layouts
 
 GXMainWindow {
   id: mainWindow
@@ -28,5 +29,21 @@ GXMainWindow {
   minimumWidth: 720
   minimumHeight: 480
   visible: true
+
+  ColumnLayout {
+    anchors.fill: parent
+    spacing: 0
+
+    MainToolBar {
+      id: toolBar
+
+      Layout.fillWidth: true
+    }
+
+    Item {
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+    }
+  }
 }
 

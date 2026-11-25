@@ -1,6 +1,8 @@
-<!DOCTYPE RCC>
 <RCC version="1.0">
-  <qresource prefix="/">
-    <file>qml/main.qml</file>
-  </qresource>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/MainToolBar.qml</file>
+        <file>qml/components/ActionButton.qml</file>
+        <file>qml/components/Separator.qml</file>
+    </qresource>
 </RCC>
