@@ -28,8 +28,7 @@
 
 #include "src/translation_loader/translation_loader.h"
 
-namespace gxde {
-namespace roller {
+namespace gxde::roller {
 
 TranslationLoader::TranslationLoader(const QString& file,
     const LanguageType& fallback_lng) {
@@ -55,10 +54,10 @@ TranslationLoader::TranslationLoader(const QString& file,
 
 QString TranslationLoader::GetLocaleSuffix(const LanguageType& type) {
   switch (type) {
-    case LanguageType::EN_US:
+    case LanguageType::kEnUs:
       return "en_us";
 
-    case LanguageType::ZH_CN:
+    case LanguageType::kZhCn:
       return "zh_cn";
 
     default:
@@ -69,10 +68,10 @@ QString TranslationLoader::GetLocaleSuffix(const LanguageType& type) {
 
 QString TranslationLoader::GetLocaleDisplayName(const LanguageType& type) {
   switch (type) {
-    case LanguageType::EN_US:
+    case LanguageType::kEnUs:
       return "English (United States)";
 
-    case LanguageType::ZH_CN:
+    case LanguageType::kZhCn:
       return "简体中文（中国）";
 
     default:
@@ -87,12 +86,12 @@ void TranslationLoader::RecordCurrentLanguage(const QString& lng) {
     lng.toStdString()));
   if (lng.contains("zh") || lng.contains("chinese")) {
     LOG(INFO) << absl::StrCat(absl::StrFormat("Language set to %s!",
-      GetLocaleDisplayName(LanguageType::ZH_CN).toStdString()));
-    current_lng_ = LanguageType::ZH_CN;
+      GetLocaleDisplayName(LanguageType::kZhCn).toStdString()));
+    current_lng_ = LanguageType::kZhCn;
   } else if (lng.contains("en")) {
     LOG(INFO) << absl::StrCat(absl::StrFormat("Language set to %s!",
-      GetLocaleDisplayName(LanguageType::EN_US).toStdString()));
-    current_lng_ = LanguageType::EN_US;
+      GetLocaleDisplayName(LanguageType::kEnUs).toStdString()));
+    current_lng_ = LanguageType::kEnUs;
   } else {
     LOG(INFO) << absl::StrCat(absl::StrFormat(
       "Unknown language type, now setting language to fallback %s...",
@@ -139,5 +138,4 @@ QString TranslationLoader::Tr(const QString& message) {
   return GetTranslation(message);
 }
 
-}  // namespace roller
-}  // namespace gxde
+}  // namespace gxde::roller

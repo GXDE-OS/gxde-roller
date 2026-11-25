@@ -19,6 +19,7 @@
 #include <QGuiApplication>
 #include <QObject>
 #include <QQmlApplicationEngine>
+#include <QQuickStyle>
 #include <QUrl>
 
 #include "absl/log/initialize.h"
@@ -27,6 +28,12 @@
 int main(int argc, char* argv[]) {
   absl::InitializeLog();
   QGuiApplication app(argc, argv);
+  QGuiApplication::setOrganizationName("GXDE");
+  QGuiApplication::setApplicationName("gxde-roller");
+  QGuiApplication::setApplicationDisplayName("GXDE Roller");
+
+  QQuickStyle::setStyle("QtQuick.Controls.Gxde");
+  QQuickStyle::setFallbackStyle("Basic");
 
   QQmlApplicationEngine engine;
   const QUrl url(QStringLiteral("qrc:/qml/main.qml"));

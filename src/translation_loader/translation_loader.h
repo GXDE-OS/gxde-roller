@@ -23,12 +23,11 @@
 #include <QWidget>
 #include <QSettings>
 
-namespace gxde {
-namespace roller {
+namespace gxde::roller {
 
 enum class LanguageType {
-  EN_US,
-  ZH_CN
+  kEnUs,
+  kZhCn,
 };
 
 class TranslationLoader: public QObject {
@@ -37,22 +36,21 @@ class TranslationLoader: public QObject {
  public:
   explicit TranslationLoader(const QString& file,
     const LanguageType& fallback_lng);
-  ~TranslationLoader() = default;
+  ~TranslationLoader() override = default;
 
-  QString GetLocaleSuffix(const LanguageType& type);
-  QString GetLocaleDisplayName(const LanguageType& type);
+  static QString GetLocaleSuffix(const LanguageType& type);
+  static QString GetLocaleDisplayName(const LanguageType& type);
   QString GetTranslation(const QString& message);
   Q_INVOKABLE QString Tr(const QString& message);
 
  private:
   void RecordCurrentLanguage(const QString& lng);
 
-  LanguageType fallback_lng_ = LanguageType::EN_US;
-  LanguageType current_lng_ = LanguageType::EN_US;
+  LanguageType fallback_lng_ = LanguageType::kEnUs;
+  LanguageType current_lng_ = LanguageType::kEnUs;
   QSettings * translation_ = nullptr;
 };
 
-}  // namespace roller
-}  // namespace gxde
+}  // namespace gxde::roller
 
 #endif  // SRC_TRANSLATION_LOADER_TRANSLATION_LOADER_H_

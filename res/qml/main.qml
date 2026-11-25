@@ -13,14 +13,20 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * -----------------------------------------------------------------------------
+ * This is the main window of GXDE Roller.
  */
 
-import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Controls.Gxde
 
-Window {
-    width: 800
-    height: 600
-    visible: true
-    title: "GXDE Roller"
+GXMainWindow {
+  id: mainWindow
+
+  width: 960
+  height: 640
+  minimumWidth: 720
+  minimumHeight: 480
+  visible: true
 }
+
