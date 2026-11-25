@@ -9,29 +9,15 @@
 License Info
 ------------
 
-7-Zip is free software distributed under the GNU LGPL
-(except for unRar code). Also some  code
-is licensed under the "BSD 3-clause License".
+7-Zip is free software distributed under the GNU LGPL.
+Also some code is licensed under the "BSD 3-clause License".
 Read "License.txt" for more information about license.
 
-Notes about unRAR license:
-
-Please check main restriction from unRar license:
-
-   2. The unRAR sources may be used in any software to handle RAR
-      archives without limitations free of charge, but cannot be used
-      to re-create the RAR compression algorithm, which is proprietary.
-      Distribution of modified unRAR sources in separate form or as a
-      part of other software is permitted, provided that it is clearly
-      stated in the documentation and source comments that the code may
-      not be used to develop a RAR (WinRAR) compatible archiver.
-
-In brief it means:
-1) You can compile and use compiled files under GNU LGPL rules, since
-   unRAR license almost has no restrictions for compiled files.
-   You can link these compiled files to LGPL programs.
-2) You can fix bugs in source code and use compiled fixed version.
-3) You can not use unRAR sources to re-create the RAR compression algorithm.
+Note (modified by GXDE Roller on 2026-11-25):
+The unRAR code (CPP/7zip/Compress/Rar*), which was under the non-free
+"unRAR license restriction", and unRarLicense.txt have been removed from
+this copy of the source code. The notes about the unRAR license that were
+here no longer apply.
 
 
 LZMA SDK

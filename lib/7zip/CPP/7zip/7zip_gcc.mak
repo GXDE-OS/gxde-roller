@@ -1,3 +1,7 @@
+# Modified by GXDE Roller on 2026-11-25: removed the RAR decompression codecs
+# (CPP/7zip/Compress/Rar*), which are under the non-free unRAR license restriction.
+# The build rules for those files were removed.
+
 # USE_CLANG=1
 # USE_ASM = 1
 # IS_X64 = 1

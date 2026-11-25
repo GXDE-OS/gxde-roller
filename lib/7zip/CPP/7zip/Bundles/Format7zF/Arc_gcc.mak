@@ -1,3 +1,7 @@
+# Modified by GXDE Roller on 2026-11-25: removed the RAR decompression codecs
+# (CPP/7zip/Compress/Rar*), which are under the non-free unRAR license restriction.
+# Their object files were removed and DISABLE_RAR_COMPRESS is always set.
+
 include ../../LzmaDec_gcc.mak
 
 LOCAL_FLAGS_ST =
@@ -280,7 +284,7 @@ COMPRESS_OBJS = \
   $O/ZDecoder.o \
   $O/ZstdDecoder.o \
 
-# RAR decompression codecs (unRAR license restriction) were removed from this tree.
+# RAR decompression codecs (unRAR license restriction) were removed from this tree (GXDE Roller, 2026-11-25).
 DISABLE_RAR_COMPRESS=1
 
 CRYPTO_OBJS = \

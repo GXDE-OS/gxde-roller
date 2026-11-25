@@ -1,3 +1,7 @@
+# Modified by GXDE Roller on 2026-11-25: removed the RAR decompression codecs
+# (CPP/7zip/Compress/Rar*), which are under the non-free unRAR license restriction.
+# Their object files were removed from COMPRESS_OBJS.
+
 COMMON_OBJS = \
   $O\CRC.obj \
   $O\CrcReg.obj \

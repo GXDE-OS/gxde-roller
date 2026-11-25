@@ -1,6 +1,9 @@
 # Microsoft Developer Studio Project File - Name="7z" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
+# Modified by GXDE Roller on 2026-11-25: removed the RAR decompression codecs
+# (CPP/7zip/Compress/Rar*), which are under the non-free unRAR license restriction.
+# The "Rar Compress" source group was removed.
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
 
