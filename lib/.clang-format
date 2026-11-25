@@ -1,0 +1,3 @@
+# Stop clang format from formatting vendored code.
+DisableFormat: true
+SortIncludes: Never

@@ -1,0 +1,2 @@
+# Stops Clang Tidy from linting vendored code.
+Checks: '-*'

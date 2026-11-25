@@ -1,0 +1,15 @@
+# Emacs
+*~
+\#*\#
+.\#*
+*.elc
+.dir-locals-2.el
+flycheck_*.el
+/.emacs.desktop
+/.emacs.desktop.lock
+
+# Build
+/build*/
+/compile_commands.json
+/.cache/
+CMakeLists.txt.user*

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 MarcusPy827
+ * Copyright (C) CharOfString <root@charofstring.cc>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,8 +22,6 @@
 #include <QString>
 #include <QWidget>
 #include <QSettings>
-
-#include "src/theme_loader/theme_conf.h"
 
 namespace gxde {
 namespace roller {

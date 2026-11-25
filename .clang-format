@@ -1,0 +1,38 @@
+# GXDE Roller will enforce Google Styled C++ Guideline.
+---
+Language: Cpp
+BasedOnStyle: Google
+
+# Always attach `*` and `&` to the type, instead of guessing from the file.
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Include order from the style guide ("Names and Order of Includes"):
+#   related header, C system headers, C++ standard library headers,
+#   other libraries' headers (Qt, DTK, libarchive, Abseil, ...), project headers.
+IncludeBlocks: Regroup
+IncludeCategories:
+  # C system headers.
+  - Regex: '^<(sys|linux|asm|arpa|net|netinet|bits)/.*\.h>$'
+    Priority: 1
+  - Regex: '^<(assert|complex|ctype|dirent|dlfcn|errno|fcntl|fenv|float|inttypes|iso646|limits|locale|math|poll|pthread|pwd|sched|semaphore|setjmp|signal|spawn|stdalign|stdarg|stdatomic|stdbool|stddef|stdint|stdio|stdlib|stdnoreturn|string|strings|syslog|termios|tgmath|threads|time|uchar|unistd|utime|wchar|wctype)\.h>$'
+    Priority: 1
+  # C++ standard library headers.
+  - Regex: '^<[a-z_0-9]+>$'
+    Priority: 2
+  # Other libraries' headers included with <>.
+  - Regex: '^<.*>$'
+    Priority: 3
+  # Other libraries' headers included with "".
+  - Regex: '^"absl/'
+    Priority: 4
+  # Project headers.
+  - Regex: '.*'
+    Priority: 5
+
+# Qt macros that stand alone without a trailing semicolon.
+StatementMacros:
+  - Q_OBJECT
+  - Q_GADGET
+  - Q_UNUSED
+...
