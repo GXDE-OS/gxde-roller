@@ -43,6 +43,13 @@ if(NOT GXTK7_QMLDIR)
     "${QT6_INSTALL_PREFIX}/${QT6_INSTALL_QML}. Please install GXTK7: "
     "https://github.com/GXDE-OS/GXTK7")
 endif()
+
+file(STRINGS "${GXTK7_QMLDIR}" GXTK7_FILE_TOOL_BAR REGEX "^GXFileToolBar ")
+if(NOT GXTK7_FILE_TOOL_BAR)
+  message(FATAL_ERROR
+    "GXTK7 at ${GXTK7_QMLDIR} is obslete: GXFileToolBar is missing. "
+    "Please install GXTK7 0.1.3 or later: https://github.com/GXDE-OS/GXTK7")
+endif()
 message(STATUS "Found GXTK7: ${GXTK7_QMLDIR}")
 
 set(ABSL_PROPAGATE_CXX_STD ON)

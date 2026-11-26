@@ -30,6 +30,15 @@ GXMainWindow {
   minimumHeight: 480
   visible: true
 
+  property url currentFolder
+  titlebar.customAlignment: Qt.AlignVCenter
+  titlebar.customItem: AddressBar {
+    id: addressBar
+
+    folder: mainWindow.currentFolder
+    onFolderRequested: url => mainWindow.currentFolder = url
+  }
+
   ColumnLayout {
     anchors.fill: parent
     spacing: 0
@@ -46,7 +55,31 @@ GXMainWindow {
     Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
+
+      Rectangle {
+        id: hint
+
+        readonly property bool overImage: mainWindow.windowBackground.isSet
+        anchors.centerIn: parent
+        width: Math.min(hintLabel.implicitWidth + 40, parent.width - 64)
+        height: hintLabel.height + 24
+        visible: mainWindow.currentFolder.toString().length === 0
+        radius: 8
+        color: overImage ? Qt.alpha(GxdePalette.window, 0.85) : "transparent"
+        border.width: overImage ? 1 : 0
+        border.color: GxdePalette.frameBorder
+
+        Label {
+          id: hintLabel
+
+          anchors.centerIn: parent
+          width: Math.min(implicitWidth, hint.width - 40)
+          text: qsTr("Drag an archive into this window, or use “Open” to open one.")
+          color: hint.overImage ? GxdePalette.text : Qt.alpha(GxdePalette.text, 0.6)
+          horizontalAlignment: Text.AlignHCenter
+          wrapMode: Text.Wrap
+        }
+      }
     }
   }
 }
-
