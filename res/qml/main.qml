@@ -34,6 +34,9 @@ GXMainWindow {
     anchors.fill: parent
     spacing: 0
 
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
     MainToolBar {
       id: toolBar
 

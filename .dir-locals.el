@@ -1,4 +1,3 @@
-
 ;;; -*- no-byte-compile: t -*-
 
 ;;; Copyright (C) 2026 CharOfString <root@charofstring.cc>

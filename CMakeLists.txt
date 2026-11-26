@@ -72,6 +72,7 @@ target_link_libraries(gxde_roller_translation_loader
 add_executable(gxde-roller
   src/main.cc
   res/qml.qrc
+  res/translations.qrc
 )
 
 set_target_properties(gxde-roller PROPERTIES AUTOMOC ON AUTORCC ON)

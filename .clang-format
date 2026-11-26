@@ -20,6 +20,8 @@ IncludeCategories:
   # C++ standard library headers.
   - Regex: '^<[a-z_0-9]+>$'
     Priority: 2
+    # Without this, Qt headers such as <QLocale> also match.
+    CaseSensitive: true
   # Other libraries' headers included with <>.
   - Regex: '^<.*>$'
     Priority: 3

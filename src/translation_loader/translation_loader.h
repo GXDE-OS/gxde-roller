@@ -18,24 +18,36 @@
 #ifndef SRC_TRANSLATION_LOADER_TRANSLATION_LOADER_H_
 #define SRC_TRANSLATION_LOADER_TRANSLATION_LOADER_H_
 
-#include <QObject>
-#include <QString>
-#include <QWidget>
-#include <QSettings>
+#include <optional>
 
-namespace gxde::roller {
+#include <QLocale>
+#include <QObject>
+#include <QSettings>
+#include <QString>
+#include <QTranslator>
+#include <QWidget>
+
+namespace gxde {
+namespace roller {
 
 enum class LanguageType {
-  kEnUs,
-  kZhCn,
+  kArSa,  // Arabic, right-to-left.
+  kEnUs,  // English.
+  kEsEs,  // Spanish.
+  kFrFr,  // French.
+  kJaJp,  // Japanese.
+  kKoKr,  // Korean.
+  kRuRu,  // Russian.
+  kZhCn,  // Chinese (Simplified).
+  kZhHk,  // Chinese (Traditional).
 };
 
-class TranslationLoader: public QObject {
+class TranslationLoader : public QTranslator {
   Q_OBJECT
 
  public:
   explicit TranslationLoader(const QString& file,
-    const LanguageType& fallback_lng);
+                             const LanguageType& fallback_lng);
   ~TranslationLoader() override = default;
 
   static QString GetLocaleSuffix(const LanguageType& type);
@@ -43,14 +55,21 @@ class TranslationLoader: public QObject {
   QString GetTranslation(const QString& message);
   Q_INVOKABLE QString Tr(const QString& message);
 
+  QString translate(const char* context, const char* source_text,
+                    const char* disambiguation, int n) const override;
+  bool isEmpty() const override;
+
  private:
-  void RecordCurrentLanguage(const QString& lng);
+  void RecordCurrentLanguage(const QLocale& locale);
+  std::optional<QString> FindTranslation(const QString& message,
+                                         const LanguageType& lng) const;
 
   LanguageType fallback_lng_ = LanguageType::kEnUs;
   LanguageType current_lng_ = LanguageType::kEnUs;
-  QSettings * translation_ = nullptr;
+  QSettings* translation_ = nullptr;
 };
 
-}  // namespace gxde::roller
+}  // namespace roller
+}  // namespace gxde
 
 #endif  // SRC_TRANSLATION_LOADER_TRANSLATION_LOADER_H_

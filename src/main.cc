@@ -27,6 +27,8 @@
 #include "absl/log/initialize.h"
 #include "absl/log/log.h"
 
+#include "src/translation_loader/translation_loader.h"
+
 int main(int argc, char* argv[]) {
   absl::InitializeLog();
   QGuiApplication app(argc, argv);
@@ -36,6 +38,11 @@ int main(int argc, char* argv[]) {
 
   QQuickStyle::setStyle("QtQuick.Controls.Gxde");
   QQuickStyle::setFallbackStyle("Basic");
+
+  gxde::roller::TranslationLoader translator(
+      QStringLiteral(":/translations/translation.conf"),
+      gxde::roller::LanguageType::kEnUs);
+  QCoreApplication::installTranslator(&translator);
 
   QQmlApplicationEngine engine;
   const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
